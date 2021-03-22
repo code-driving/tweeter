@@ -20,7 +20,16 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
 }
-
 /*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+* Additional CSS can be defined below or in other CSS files, as per instructions
+*/
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: inherit;
+}
