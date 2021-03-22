@@ -1,9 +1,19 @@
 header {
   height: 400px;
   width: 100%;
+  /* width: calc(100%/3); */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+  flex-flow: column-wrap;
+  background-color: #d99820;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+}
+header h2{
+  color: #fff;
+  font-weight: 300;
+}
+header span {
+  font-weight: 600;
 }
