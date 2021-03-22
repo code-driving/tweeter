@@ -3,7 +3,7 @@ nav {
   color: #FFFFFF;
   height: 120px;
   width: 100%;
-  position: fixed;
+  /* position: fixed; */
   padding: 1.5em;
   display: flex;
   justify-content: space-between;
@@ -15,4 +15,5 @@ nav {
 }
 nav p span {
   font-weight: 600;
+  color: #FF0000
 }
