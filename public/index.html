@@ -47,7 +47,7 @@
           <div>
               <img src="/images/profile-hex.png"> 
           </div>
-          <!-- <br> -->
+          <br>
           <div>
               <h2><span>Your</span> Name</h2>
           </div>
@@ -62,13 +62,13 @@
         <!-- <h2>Compose Tweet</h2> -->
         <form method="POST" action="/tweets">
           <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text" wrap="off" cols="30" rows="5"></textarea>
           <div class="tweet-submit">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-        
+
       </section> <!-- section new-tweet ends -->
     </main>
   </body>
