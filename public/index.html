@@ -11,10 +11,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
     
+    <!-- Link to Font Awesome -->
+    <script src="https://kit.fontawesome.com/30e535ff90.js" crossorigin="anonymous"></script>
+    
     <!-- Link separate css files for each component -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -26,8 +31,14 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <div><span class="logo">tweeter</span></div>
-      <p><span>Write</span> a new tweet</p>
+      <span class="logo">tweeter</span>
+      <div class="tweet-arrow"> <!--make a button maybe instead?-->
+        <p><span>Write</span> a new tweet</p>
+        <div class="arrow">
+          <i class="fas fa-angle-double-down" aria-hidden="true"></i>
+          <span class="sr-only">Press to make a tweet</span>
+        </div>
+      </div>
     </nav>
     <!-- top nav bar ends-->
     
@@ -45,17 +56,20 @@
     
     <!-- Page-specific (main) content here -->
     <main class="container">
+    <!-- section .new-tweet -->
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form>
+      
+        <!-- <h2>Compose Tweet</h2> -->
+        <form method="POST" action="/tweets">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
-          <div>
+          <div class="tweet-submit">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-      </section>
+        
+      </section> <!-- section new-tweet ends -->
     </main>
   </body>
 </html>
