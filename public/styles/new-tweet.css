@@ -12,15 +12,15 @@
 textarea {
   height: 40px;
   width: 100%;
-  font-size: 15px;
+  font-size: 1.4rem;
   resize: none;
   border: none;
   outline: none;
-  overflow: hidden;
+  overflow: auto;
   display: block;
   background-color: #f4f1ec;
   border-bottom: 2px solid #000;
-  margin: 1rem 0 1rem 0;
+  margin: 1.2rem 0 1.2rem 0;
 }
 .tweet-submit {
   font-family: 'Bungee', cursive;
