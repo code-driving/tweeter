@@ -15,5 +15,13 @@ nav {
 }
 nav p span {
   font-weight: 600;
-  color: #FF0000
+}
+nav i {
+  color: #f00;
+}
+.tweet-arrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
 }
