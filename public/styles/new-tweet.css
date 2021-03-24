@@ -5,6 +5,9 @@
   /* flex-wrap: wrap; */ 
   margin-top: 1rem;
 }
+form {
+  margin-top: 2rem;
+}
 .new-tweet label {
   font-weight: 600;
 }
@@ -30,12 +33,20 @@ textarea {
   display: flex;
   justify-content: space-between;
 }
+
 .tweet-submit button {
   color: #fff;
   background-color: #4052A1;
-  border: none;
+  border: 10px solid rgb(196,205,227, 0);
   outline: none;
   padding: 0.5rem 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.tweet-submit button:hover,
+.tweet-submit button:focus {
+  border: 10px solid #C5CCE3;
+  cursor: pointer;
 }
 .negative-values {
   color: #ff0000;
