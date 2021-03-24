@@ -68,11 +68,30 @@ const loadTweets = () => {
   .catch(err => console.log(err))
 }
 
+//get decoded tweet text from the form minus text=
+const getDecodedTweet = encodedStr => {
+  let text = "";
+  for (let index in encodedStr) {
+    if (index > 4) {
+      text += encodedStr[index]
+    }
+  }
+  return  decodeURIComponent(text);
+}
+
 //handle form submission
 const handleSubmit = event => {
   event.preventDefault();
   const data = $("form").serialize()
-  sendTweetToServer(data)
+  const dataLength = getDecodedTweet(data).length
+  //validate the form
+  if (dataLength === 0) {
+    alert("Cannot send an empty tweet");
+  } else if (dataLength > 140) {
+    alert("Your tweet cannot exceed 140 characters")
+  } else {
+    sendTweetToServer(data);
+  }
 }
 
 
