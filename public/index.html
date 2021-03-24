@@ -5,24 +5,40 @@
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      type="text/css"
+    />
+
     <!-- Link to Google Fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Link to Font Awesome -->
-    <script src="https://kit.fontawesome.com/30e535ff90.js" crossorigin="anonymous"></script>
-    
+    <script
+      src="https://kit.fontawesome.com/30e535ff90.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- Link separate css files for each component -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Composer-char-counter JS -->
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -32,7 +48,8 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
-      <div class="tweet-arrow"> <!--make a button maybe instead?-->
+      <div class="tweet-arrow">
+        <!--make a button maybe instead?-->
         <p><span>Write</span> a new tweet</p>
         <div class="arrow">
           <i class="fas fa-angle-double-down" aria-hidden="true"></i>
@@ -41,35 +58,42 @@
       </div>
     </nav>
     <!-- top nav bar ends-->
-    
+
     <!-- header -->
-    <header>
-          <div>
-              <img src="/images/profile-hex.png"> 
-          </div>
-          <br>
-          <div>
-              <h2><span>Your</span> Name</h2>
-          </div>
-        </div>
-    </header> <!-- header ends -->
-    
+    <header class="header-main">
+      <div>
+        <img src="/images/profile-hex.png" />
+      </div>
+      <br />
+      <div>
+        <h2><span>Your</span> Name</h2>
+      </div>
+    </header>
+    <!-- header ends -->
+
     <!-- Page-specific (main) content here -->
     <main class="container">
-    <!-- section .new-tweet -->
+      <!-- section .new-tweet -->
       <section class="new-tweet">
-      
         <!-- <h2>Compose Tweet</h2> -->
         <form method="POST" action="/tweets">
           <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text" wrap="off" cols="30" rows="5"></textarea>
+          <textarea
+            class="tweet-compose"
+            name="text"
+            id="tweet-text"
+            cols="30"
+            rows="5"
+          ></textarea>
           <div class="tweet-submit">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-
-      </section> <!-- section new-tweet ends -->
+      </section>
+      <!-- section new-tweet ends -->
+      <section id="tweets-container">
+      </section>
     </main>
   </body>
 </html>
