@@ -1,6 +1,6 @@
 $(document).ready(function () {
   
-  $("textarea").on("keyup", function () {
+  $(".tweet-compose").on("keyup", function () {
     const charCount = $(this).val().length;
 
     if (charCount <= 140) {
