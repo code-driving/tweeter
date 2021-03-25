@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//escape function
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 //create a tweet element
 const createTweetElement = (tweet) => {
   let $tweet = $(`
@@ -18,7 +24,7 @@ const createTweetElement = (tweet) => {
   
   <div class="content">
   <p>
-  ${tweet.content.text}
+  ${escape(tweet.content.text)}
   </p>
   </div>
   <footer class="tweet-footer">
@@ -34,70 +40,73 @@ const createTweetElement = (tweet) => {
   return $tweet;
 };
 
+
 //render all tweets on a page
 const renderTweets = (tweets) => {
+  $("#tweet-container").empty();
   for (let tweetObj of tweets) {
     $("#tweets-container").prepend(createTweetElement(tweetObj));
   }
 };
+
 
 //send tweets to a server
 const sendTweetToServer = (tweet) => {
   $.ajax({
     url: "/tweets",
     method: "POST",
-    data: tweet
+    data: tweet,
   })
-  .then(res => console.log('Tweet has been sent', res))
-  .catch(err => console.log(err))
-}
+    .then((res) => {
+      loadTweets();
+      console.log("Tweet has been sent", res)})
+    .catch((err) => console.log(err));
+};
+
 
 //fetch tweets with Ajax
 const loadTweets = () => {
-  
-  $(".content p").text("LOADING")
-  
+
   $.ajax({
     url: "/tweets",
-    method: "GET"
+    method: "GET",
   })
-  .then(res => {
-    $(".content p").empty()
-    renderTweets(res)
-  })
-  .catch(err => console.log(err))
-}
+    .then((res) => {
+      renderTweets(res);
+    })
+    .catch((err) => console.log(err));
+};
+
 
 //get decoded tweet text from the form minus text=
-const getDecodedTweet = encodedStr => {
+const getDecodedTweet = (encodedStr) => {
   let text = "";
   for (let index in encodedStr) {
     if (index > 4) {
-      text += encodedStr[index]
+      text += encodedStr[index];
     }
   }
-  return  decodeURIComponent(text);
-}
+  return decodeURIComponent(text);
+};
 
 //handle form submission
-const handleSubmit = event => {
+const handleSubmit = (event) => {
   event.preventDefault();
-  const data = $("form").serialize()
-  const dataLength = getDecodedTweet(data).length
+  const data = $("form").serialize();
+  const dataLength = getDecodedTweet(data).length;
   //validate the form
   if (dataLength === 0) {
     alert("Cannot send an empty tweet");
   } else if (dataLength > 140) {
-    alert("Your tweet cannot exceed 140 characters")
+    alert("Your tweet cannot exceed 140 characters");
   } else {
     sendTweetToServer(data);
+    loadNewTweet(data);
+    $(".tweet-compose").val("")
   }
-}
-
+};
 
 $(document).ready(function () {
-  
-  loadTweets()
-  $("form").on("submit", handleSubmit)
-
+  loadTweets();
+  $("form").on("submit", handleSubmit);
 });
