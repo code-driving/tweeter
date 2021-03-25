@@ -54,20 +54,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-<<<<<<< HEAD
   padding: 0 17px 17px;
-=======
-  padding: 17px;
->>>>>>> 2af2c51e32490e5dbffab4db69b369395e662a95
   font-size: 18px;
 }
 .tweet-icons > * {
   padding-left: 10px;
-<<<<<<< HEAD
   border: none; 
   outline: none;
-=======
->>>>>>> 2af2c51e32490e5dbffab4db69b369395e662a95
   color: #4052A1;
   transition: all 0.3s ease;
 }
@@ -75,8 +68,5 @@
 i:hover,
 i:focus {
   color: #C5CCE3;
-<<<<<<< HEAD
   cursor: pointer;
-=======
->>>>>>> 2af2c51e32490e5dbffab4db69b369395e662a95
 }
