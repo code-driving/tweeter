@@ -10,6 +10,7 @@ const escape = function (str) {
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
+
 //create a tweet element
 const createTweetElement = (tweet) => {
   let $tweet = $(`
@@ -28,7 +29,7 @@ const createTweetElement = (tweet) => {
   </p>
   </div>
   <footer class="tweet-footer">
-  <div><p>${tweet.created_at}</p></div>
+  <div><p>${new Date(tweet.created_at).toLocaleString()}</p></div>
   <div class="tweet-icons">
   <button><i class="fas fa-flag"></i></button>
   <button><i class="fas fa-retweet"></i></button>
@@ -60,7 +61,7 @@ const validateError = (error) => {
 
 //render all tweets on a page
 const renderTweets = (tweets) => {
-  $("#tweet-container").empty();
+  $("#tweets-container").empty();
   for (let tweetObj of tweets) {
     $("#tweets-container").prepend(createTweetElement(tweetObj));
   }
@@ -116,8 +117,7 @@ const handleSubmit = (event) => {
   } else {
     validateError();
     sendTweetToServer(data);
-    loadNewTweet(data);
-    $(".tweet-compose").val("");
+    $(".tweet-compose").val("").keyup().focus();
   }
 };
 
@@ -128,16 +128,16 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $(".new-tweet").hide();
-  
+
   $("nav button").on("click", function () {
-    $(".new-tweet").slideToggle("slow")
-    $(".tweet-compose").focus()
+    $(".new-tweet").slideToggle("slow");
+    $(".tweet-compose").focus();
   });
-  
+
   $(".tweet-compose").on("keyup", function () {
     $(".error").css("display", "none");
   });
-  
+
   $("nav button").hover(function () {
     $(this).fadeOut(200);
     $(this).fadeIn(600);
