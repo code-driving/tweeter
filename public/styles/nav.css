@@ -1,28 +1,44 @@
 nav {
-  background-color: #4056A1;
-  color: #FFFFFF;
+  background-color: #4056a1;
+  color: #ffffff;
   height: 120px;
-  position: fixed; 
-  top: 0;  
-  width: 100%; 
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 1.5em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .logo {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   font-size: 2rem;
 }
-nav p span {
+
+nav button span {
   font-weight: 600;
 }
+nav p {
+  margin-bottom: 0;
+}
+nav button {
+  color: #fff;
+  background: inherit;
+  border: none;
+}
+nav button:hover,
+nav button:focus {
+cursor: pointer;
+transition: all 0.3s ease;
+border: none;
+}
+
 nav i {
   color: #f00;
 }
 .tweet-arrow {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }

@@ -5,6 +5,20 @@
   /* flex-wrap: wrap; */ 
   margin-top: 1rem;
 }
+.error {
+  display: none;
+  height: 5rem;
+  width: 100%;
+  background-color: #F8D7D9;
+  color: #8F1C23;
+  border: 4px solid red;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0.7rem;
+}
 form {
   margin-top: 2rem;
 }

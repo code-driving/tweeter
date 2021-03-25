@@ -5,11 +5,11 @@
  */
 
 //escape function
-const escape =  function(str) {
-  let div = document.createElement('div');
+const escape = function (str) {
+  let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 //create a tweet element
 const createTweetElement = (tweet) => {
   let $tweet = $(`
@@ -40,6 +40,23 @@ const createTweetElement = (tweet) => {
   return $tweet;
 };
 
+//slide in and out of the error section
+const validateError = (error) => {
+  if (error === "empty") {
+    $(".error").hide();
+    $(".error").empty();
+    $(".error").append("<p>Your tweet is empty</p>");
+    $(".error").slideDown("slow");
+  } else if (error === "extra") {
+    $(".error").hide();
+    $(".error").empty();
+    $(".error").append("<p>Your tweet is too long</p>");
+    $(".error").slideDown("slow");
+  } else {
+    $(".error").hide();
+    $(".error").empty();
+  }
+};
 
 //render all tweets on a page
 const renderTweets = (tweets) => {
@@ -48,7 +65,6 @@ const renderTweets = (tweets) => {
     $("#tweets-container").prepend(createTweetElement(tweetObj));
   }
 };
-
 
 //send tweets to a server
 const sendTweetToServer = (tweet) => {
@@ -59,14 +75,13 @@ const sendTweetToServer = (tweet) => {
   })
     .then((res) => {
       loadTweets();
-      console.log("Tweet has been sent", res)})
+      console.log("Tweet has been sent", res);
+    })
     .catch((err) => console.log(err));
 };
 
-
 //fetch tweets with Ajax
 const loadTweets = () => {
-
   $.ajax({
     url: "/tweets",
     method: "GET",
@@ -76,7 +91,6 @@ const loadTweets = () => {
     })
     .catch((err) => console.log(err));
 };
-
 
 //get decoded tweet text from the form minus text=
 const getDecodedTweet = (encodedStr) => {
@@ -96,17 +110,37 @@ const handleSubmit = (event) => {
   const dataLength = getDecodedTweet(data).length;
   //validate the form
   if (dataLength === 0) {
-    alert("Cannot send an empty tweet");
+    validateError("empty");
   } else if (dataLength > 140) {
-    alert("Your tweet cannot exceed 140 characters");
+    validateError("extra");
   } else {
+    validateError();
     sendTweetToServer(data);
     loadNewTweet(data);
-    $(".tweet-compose").val("")
+    $(".tweet-compose").val("");
   }
 };
 
 $(document).ready(function () {
   loadTweets();
   $("form").on("submit", handleSubmit);
+});
+
+$(document).ready(function () {
+  $(".new-tweet").hide();
+  
+  $("nav button").on("click", function () {
+    $(".new-tweet").slideToggle("slow")
+    $(".tweet-compose").focus()
+  });
+  
+  $(".tweet-compose").on("keyup", function () {
+    $(".error").css("display", "none");
+  });
+  
+  $("nav button").hover(function () {
+    $(this).fadeOut(200);
+    $(this).fadeIn(600);
+    $(".arrow").slideToggle("slow");
+  });
 });
