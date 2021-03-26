@@ -93,7 +93,7 @@ const loadTweets = () => {
     .catch((err) => console.log(err));
 };
 
-//get decoded tweet text from the form minus text=
+//get decoded tweet text from the form 
 const getDecodedTweet = (encodedStr) => {
   let text = "";
   for (let index in encodedStr) {
