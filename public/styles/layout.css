@@ -34,6 +34,49 @@ img {
   margin: 0 auto;
   background-color: inherit;
 }
+.scroll {
+  background-color: #ff0000;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border: none;
+  padding: 1rem;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+.scroll:hover i,
+.scroll:focus i {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+  }
+  .header-main {
+    min-width: 100px;
+    margin: 7rem 3rem;
+    flex-basis: 30%;
+  }
+  main.container {
+    margin: 4rem 3rem 0 4rem;
+  }
+  .scroll {
+    width: 70px;
+    height: 70px;
+    padding: 1.2rem
+  }
+}
+
+
+
 
 
 /* @media (max-width: 979px) {

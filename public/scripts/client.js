@@ -124,9 +124,14 @@ const handleSubmit = (event) => {
 $(document).ready(function () {
   loadTweets();
   $("form").on("submit", handleSubmit);
-});
+  $(".tweet-compose").keypress(function (e) {
+    if (e.which === 13) {
+      handleSubmit(e);
+      return false;
+    }
+  });
 
-$(document).ready(function () {
+  //manage css functionality
   $(".new-tweet").hide();
 
   $("nav button").on("click", function () {

@@ -22,7 +22,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-right: auto; */
 }
 .tweet-header img {
   width: 100px;
@@ -34,7 +33,6 @@
 }
 .tweet-header div:nth-of-type(2) {
   color: #C5CCE3;
-  /* margin-right: 30px; */
   display: none;
   transition: all 0.3s ease;
 }
@@ -69,4 +67,14 @@ i:hover,
 i:focus {
   color: #C5CCE3;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 380px) {
+  .tweet-footer {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  .tweet-submit button {
+    padding: 0;
+  }
 }

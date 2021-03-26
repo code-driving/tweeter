@@ -1,11 +1,12 @@
 nav {
-  background-color: #4056a1;
+  background-color: #d99820;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   color: #ffffff;
   height: 120px;
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1.5em;
+  padding: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,17 +21,19 @@ nav button span {
 }
 nav p {
   margin-bottom: 0;
+  font-size: 1.2rem;
 }
 nav button {
   color: #fff;
   background: inherit;
   border: none;
 }
+
 nav button:hover,
 nav button:focus {
-cursor: pointer;
-transition: all 0.3s ease;
-border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
 }
 
 nav i {
@@ -41,4 +44,22 @@ nav i {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.arrow {
+  animation: bounce 3s ease; 
+}
+
+@keyframes bounce {
+  0% { transform: translate(0, 0)}
+  50% {transform: translate(0, 20px)}
+  100% {transform: translate(0, 0)}
+}
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056a1;
+    background-image: none;
+  }
+  .tweet-arrow p {
+    font-size: 1.6rem;
+  }
 }
